@@ -8,11 +8,11 @@ import java.awt.event.ActionListener;
 public class Node extends JButton implements ActionListener {
 
    Node parent;
-   int col;
-   int row;
-   int gCost;
-   int hCost;
-   int fCost;
+   public int col;
+   public int row;
+   public int gCost;
+   public int hCost;
+   public int fCost;
    boolean start;
    boolean goal;
    boolean solid ;
@@ -41,8 +41,14 @@ public class Node extends JButton implements ActionListener {
         goal = true;
     }
 
+    public void setAsSolid(){
+       setBackground(Color.black);
+       setForeground(Color.black);
+       solid = true;
+    }
     @Override
     public void actionPerformed(ActionEvent e) {
         setBackground(Color.orange);
     }
+
 }
