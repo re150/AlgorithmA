@@ -4,10 +4,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.OptionalInt;
 
 public class Node extends JButton implements ActionListener {
 
-   Node parent;
+   public Node parent;
    public int col;
    public int row;
    public int gCost;
@@ -15,10 +16,9 @@ public class Node extends JButton implements ActionListener {
    public int fCost;
    boolean start;
    boolean goal;
-   boolean solid ;
-   boolean open;
-   boolean checked ;
-
+   public boolean solid ;
+   public boolean open;
+   public boolean checked ;
    public Node(int col, int row) {
     this.col = col;
     this.row = row;
@@ -45,6 +45,21 @@ public class Node extends JButton implements ActionListener {
        setBackground(Color.black);
        setForeground(Color.black);
        solid = true;
+    }
+    public void  setAsOpen(){
+       open = true;
+    }
+    public void setAsChecked(){
+        if(start == false && goal == false){
+            setBackground(Color.black);
+            setBackground(Color.ORANGE);
+        }
+        checked = true;
+    }
+    public void setAsPath(){
+       setBackground(Color.black);
+       setBackground(Color.green);
+
     }
     @Override
     public void actionPerformed(ActionEvent e) {
